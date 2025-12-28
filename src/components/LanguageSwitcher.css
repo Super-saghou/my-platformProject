@@ -1,0 +1,146 @@
+.language-switcher {
+  position: relative;
+}
+
+.language-switcher-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  background: #f7fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #4a5568;
+  min-width: 120px;
+}
+
+.language-switcher-button:hover {
+  background: #edf2f7;
+  border-color: #cbd5e0;
+}
+
+.language-switcher-button svg {
+  width: 16px;
+  height: 16px;
+  margin-left: auto;
+  transition: transform 0.3s ease;
+}
+
+.language-switcher:hover .language-switcher-button svg {
+  transform: rotate(180deg);
+}
+
+.current-flag {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.current-lang {
+  flex: 1;
+  text-align: left;
+}
+
+.language-dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  min-width: 180px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.language-switcher:hover .language-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.language-option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  font-family: inherit;
+  text-align: right;
+  color: #2d3748;
+}
+
+.language-option:hover {
+  background: #f7fafc;
+}
+
+.language-option.active {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  color: #667eea;
+  font-weight: 600;
+}
+
+.language-option .flag {
+  font-size: 1.2rem;
+  line-height: 1;
+  width: 24px;
+  text-align: center;
+}
+
+.language-option .name {
+  flex: 1;
+  text-align: right;
+}
+
+.language-option svg {
+  width: 18px;
+  height: 18px;
+  color: #667eea;
+}
+
+/* RTL Support */
+[dir='rtl'] .current-lang {
+  text-align: right;
+}
+
+[dir='rtl'] .language-dropdown {
+  right: auto;
+  left: 0;
+}
+
+[dir='rtl'] .language-option {
+  text-align: left;
+}
+
+[dir='rtl'] .language-option .name {
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .language-switcher-button {
+    min-width: 100px;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .current-lang {
+    display: none;
+  }
+
+  .language-dropdown {
+    min-width: 150px;
+  }
+}
+
