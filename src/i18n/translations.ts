@@ -152,7 +152,7 @@ const translations: Record<Language, Translations> = {
       close: 'Close',
     },
     admin: {
-      title: 'Admin Platform',
+      title: 'Municipal Budget Data Management Platform (PGDBC)',
       subtitle: 'User Management System',
       overview: 'Overview',
       userManagement: 'User Management',
@@ -185,8 +185,8 @@ const translations: Record<Language, Translations> = {
       passwordLeaveBlank: 'leave blank to keep current',
     },
     user: {
-      title: 'Accounting Platform',
-      subtitle: 'Manage your accounting tasks',
+      title: 'Municipal Budget Data Management Platform (PGDBC)',
+      subtitle: 'Manage your municipal budget data',
       loggedInAs: "You're logged in as",
       loggedInAt: 'Logged in at',
       financialTransactions: 'Financial Transactions',
@@ -198,7 +198,7 @@ const translations: Record<Language, Translations> = {
       openModule: 'Open Module',
     },
     login: {
-      title: 'Platform',
+      title: 'Municipal Budget Data Management Platform (PGDBC)',
       subtitle: 'Sign in to continue',
       emailLabel: 'Email Address',
       passwordLabel: 'Password',
@@ -270,7 +270,7 @@ const translations: Record<Language, Translations> = {
       close: 'Fermer',
     },
     admin: {
-      title: 'Plateforme Admin',
+      title: 'Plateforme de Gestion des Données Budgétaires Communales (PGDBC)',
       subtitle: 'Système de gestion des utilisateurs',
       overview: 'Vue d\'ensemble',
       userManagement: 'Gestion des utilisateurs',
@@ -303,8 +303,8 @@ const translations: Record<Language, Translations> = {
       passwordLeaveBlank: 'laisser vide pour garder le mot de passe actuel',
     },
     user: {
-      title: 'Plateforme comptable',
-      subtitle: 'Gérez vos tâches comptables',
+      title: 'Plateforme de Gestion des Données Budgétaires Communales (PGDBC)',
+      subtitle: 'Gérez vos données budgétaires municipales',
       loggedInAs: 'Vous êtes connecté en tant que',
       loggedInAt: 'Connecté à',
       financialTransactions: 'Transactions financières',
@@ -316,7 +316,7 @@ const translations: Record<Language, Translations> = {
       openModule: 'Ouvrir le module',
     },
     login: {
-      title: 'Plateforme',
+      title: 'Plateforme de Gestion des Données Budgétaires Communales (PGDBC)',
       subtitle: 'Connectez-vous pour continuer',
       emailLabel: 'Adresse e-mail (Email)',
       passwordLabel: 'Mot de passe (Password)',
@@ -388,7 +388,7 @@ const translations: Record<Language, Translations> = {
       close: 'إغلاق',
     },
     admin: {
-      title: 'منصة الإدارة',
+      title: 'منصة إدارة المعطيات الميزانية البلدية',
       subtitle: 'نظام إدارة المستخدمين',
       overview: 'نظرة عامة',
       userManagement: 'إدارة المستخدمين',
@@ -421,8 +421,8 @@ const translations: Record<Language, Translations> = {
       passwordLeaveBlank: 'اتركه فارغاً للاحتفاظ بكلمة المرور الحالية',
     },
     user: {
-      title: 'منصة المحاسبة',
-      subtitle: 'إدارة مهامك المحاسبية',
+      title: 'منصة إدارة المعطيات الميزانية البلدية',
+      subtitle: 'إدارة بياناتك الميزانية البلدية',
       loggedInAs: 'أنت مسجل الدخول كـ',
       loggedInAt: 'تم تسجيل الدخول في',
       financialTransactions: 'المعاملات المالية',
@@ -434,7 +434,7 @@ const translations: Record<Language, Translations> = {
       openModule: 'فتح الوحدة',
     },
     login: {
-      title: 'المنصة',
+      title: 'منصة إدارة المعطيات الميزانية البلدية',
       subtitle: 'قم بتسجيل الدخول للمتابعة',
       emailLabel: 'البريد الإلكتروني (Adresse e-mail)',
       passwordLabel: 'كلمة المرور (Mot de passe)',

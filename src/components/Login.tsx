@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { authService } from '../services/auth';
-import translations from '../i18n/translations';
+import { useI18n } from '../i18n/i18n';
 import MFACodeVerification from './MFACodeVerification';
 import './Login.css';
 
@@ -9,8 +9,7 @@ type LoginStep = 'credentials' | 'mfa';
 
 function Login() {
   const navigate = useNavigate();
-  // Use Arabic translations for login page by default
-  const t = translations.ar;
+  const { t } = useI18n();
   const [currentStep, setCurrentStep] = useState<LoginStep>('credentials');
   const [formData, setFormData] = useState({
     email: '',
