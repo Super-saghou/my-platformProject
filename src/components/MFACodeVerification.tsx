@@ -157,15 +157,15 @@ function MFACodeVerification({ email, onVerify, onBack }: MFACodeVerificationPro
           </p>
         </div>
 
-        {/* Demo: Show code in development */}
-        {sentCode && (
+        {/* Show code only if API is not configured (dev mode) */}
+        {sentCode && (!import.meta.env.VITE_API_URL || import.meta.env.VITE_API_URL === 'http://localhost:3001') && import.meta.env.DEV && (
           <div className="demo-code-banner">
             <p>
-              <strong>Demo Mode:</strong> Your code is{' '}
+              <strong>Mode Développement:</strong> Votre code est{' '}
               <span className="demo-code">{sentCode}</span>
             </p>
             <p className="demo-note">
-              In production, this code would be sent via email
+              Démarrez le serveur API (cd server && npm run dev) pour l'envoi réel d'emails
             </p>
           </div>
         )}

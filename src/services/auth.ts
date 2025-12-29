@@ -31,9 +31,9 @@ initializeUsers();
 export const authService = {
   // Authenticate user with email and password
   authenticate: (email: string, password: string): User | null => {
-    const users = authService.getAllUsers();
+    const users = userService.getAllUsers();
     const user = users.find(
-      (u) => u.email.toLowerCase() === email.toLowerCase() && u.isActive
+      (u: User) => u.email.toLowerCase() === email.toLowerCase() && u.isActive
     );
 
     if (!user) {
@@ -203,6 +203,5 @@ export const userService = {
   },
 };
 
-// Export getAllUsers for authService
-authService.getAllUsers = userService.getAllUsers;
+// Note: authService uses userService.getAllUsers() directly
 

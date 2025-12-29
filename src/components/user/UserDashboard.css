@@ -108,6 +108,52 @@
   padding: 2rem;
 }
 
+.user-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  background: white;
+  padding: 0.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #666;
+  transition: all 0.2s;
+  font-size: 1rem;
+}
+
+.user-tab svg {
+  width: 20px;
+  height: 20px;
+}
+
+.user-tab:hover {
+  background: #f8f9fa;
+  color: #333;
+}
+
+.user-tab.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.user-content {
+  min-height: 400px;
+}
+
 .welcome-section {
   background: white;
   border-radius: 20px;

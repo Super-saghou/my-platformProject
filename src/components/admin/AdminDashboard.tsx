@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { authService, userService } from '../../services/auth';
 import { useI18n } from '../../i18n/i18n';
-import type { User, CreateUserData } from '../../types/user';
+import type { User } from '../../types/user';
 import UserManagement from './UserManagement';
-import LanguageSwitcher from '../LanguageSwitcher';
+import CommuneManagement from './CommuneManagement';
+import BudgetManagement from '../budget/BudgetManagement';
 import './AdminDashboard.css';
 
 function AdminDashboard() {
@@ -12,7 +13,7 @@ function AdminDashboard() {
   const { t } = useI18n();
   const [session, setSession] = useState(authService.getCurrentSession());
   const [users, setUsers] = useState<User[]>([]);
-  const [activeTab, setActiveTab] = useState<'overview' | 'users'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'users' | 'communes' | 'budgets'>('overview');
 
   useEffect(() => {
     // Check if user is authenticated and is admin
@@ -109,6 +110,26 @@ function AdminDashboard() {
             </svg>
             {t.admin.userManagement}
           </button>
+          <button
+            className={`tab-button ${activeTab === 'communes' ? 'active' : ''}`}
+            onClick={() => setActiveTab('communes')}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            Communes
+          </button>
+          <button
+            className={`tab-button ${activeTab === 'budgets' ? 'active' : ''}`}
+            onClick={() => setActiveTab('budgets')}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <line x1="12" y1="1" x2="12" y2="23" />
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+            </svg>
+            Budgets
+          </button>
         </nav>
 
         <div className="admin-content">
@@ -195,6 +216,14 @@ function AdminDashboard() {
 
           {activeTab === 'users' && (
             <UserManagement users={users} onUsersChange={loadUsers} onUserCreated={handleUserCreated} />
+          )}
+
+          {activeTab === 'communes' && (
+            <CommuneManagement />
+          )}
+
+          {activeTab === 'budgets' && (
+            <BudgetManagement />
           )}
         </div>
       </div>

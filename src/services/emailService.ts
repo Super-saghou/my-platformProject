@@ -1,5 +1,5 @@
-// Email service to simulate sending MFA codes
-// In production, this would call a backend API to send real emails
+// Email service to send MFA codes via Resend API
+// Utilise un backend API pour sécuriser l'envoi d'emails
 
 interface MFACode {
   code: string;
@@ -51,7 +51,7 @@ function cleanExpiredCodes(): void {
 }
 
 export const emailService = {
-  // Send MFA code to email (simulated)
+  // Send MFA code to email via backend API
   async sendMFACode(email: string): Promise<string> {
     // Clean expired codes first
     cleanExpiredCodes();
@@ -70,15 +70,45 @@ export const emailService = {
     };
     saveCodes(codes);
 
-    // Simulate API delay (in production, this would be a real API call)
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    // Envoyer l'email via l'API backend
+    try {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+      const response = await fetch(`${apiUrl}/api/send-mfa-code`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          code,
+          expiryMinutes: CODE_EXPIRY_MINUTES,
+        }),
+      });
 
-    // In production, you would send an actual email here
-    // For now, we'll log it to console and show it in the UI
-    console.log(`📧 MFA Code sent to ${email}: ${code}`);
-    console.log('⚠️ In production, this code would be sent via email service (SendGrid, AWS SES, etc.)');
+      if (response.ok) {
+        await response.json();
+        console.log(`✅ Code MFA envoyé par email à ${email}`);
+        return code;
+      } else {
+        const error = await response.json();
+        console.warn(`⚠️ Erreur API: ${error.message || 'Erreur inconnue'}`);
+        // En mode développement, afficher le code
+        if (import.meta.env.DEV) {
+          console.log(`📧 [DEV MODE] MFA Code pour ${email}: ${code}`);
+        }
+      }
+    } catch (error) {
+      console.error('Erreur lors de l\'envoi de l\'email:', error);
+      // En mode développement, afficher le code même en cas d'erreur
+      if (import.meta.env.DEV) {
+        console.log(`📧 [DEV MODE] MFA Code pour ${email}: ${code}`);
+        console.log('⚠️ Le backend API n\'est pas disponible. Le code est affiché dans la console.');
+      }
+      // Ne pas bloquer le processus si l'email échoue
+      // Le code est toujours stocké et peut être vérifié
+    }
 
-    return code; // Return code for demo purposes (in production, don't return it)
+    return code; // Retourner le code pour l'affichage en mode développement
   },
 
   // Verify MFA code
@@ -91,7 +121,7 @@ export const emailService = {
     if (!codeData) {
       return {
         valid: false,
-        message: 'No code found. Please request a new code.',
+        message: 'Aucun code trouvé. Veuillez demander un nouveau code.',
       };
     }
 
@@ -101,7 +131,7 @@ export const emailService = {
       saveCodes(codes);
       return {
         valid: false,
-        message: 'Code has expired. Please request a new code.',
+        message: 'Le code a expiré. Veuillez demander un nouveau code.',
       };
     }
 
@@ -111,7 +141,7 @@ export const emailService = {
       saveCodes(codes);
       return {
         valid: false,
-        message: 'Too many failed attempts. Please request a new code.',
+        message: 'Trop de tentatives échouées. Veuillez demander un nouveau code.',
       };
     }
 
@@ -124,7 +154,7 @@ export const emailService = {
       const remainingAttempts = MAX_ATTEMPTS - codeData.attempts;
       return {
         valid: false,
-        message: `Invalid code. ${remainingAttempts} attempt${remainingAttempts !== 1 ? 's' : ''} remaining.`,
+        message: `Code invalide. ${remainingAttempts} tentative${remainingAttempts !== 1 ? 's' : ''} restante${remainingAttempts !== 1 ? 's' : ''}.`,
       };
     }
 
@@ -134,7 +164,7 @@ export const emailService = {
 
     return {
       valid: true,
-      message: 'Code verified successfully!',
+      message: 'Code vérifié avec succès!',
     };
   },
 
@@ -157,4 +187,3 @@ export const emailService = {
     return codeData !== undefined && Date.now() < codeData.expiresAt;
   },
 };
-

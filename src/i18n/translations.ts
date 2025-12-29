@@ -95,6 +95,41 @@ export interface Translations {
     invalidCredentials: string;
     accountDeactivated: string;
   };
+
+  // Budget Management
+  budget: {
+    title: string;
+    subtitle: string;
+    communes: string;
+    budgets: string;
+    recettes: string;
+    depenses: string;
+    selectCommune: string;
+    noCommune: string;
+    budgetData: string;
+    futureEvents: string;
+    addYear: string;
+    validateBalance: string;
+    exportCSV: string;
+    exportExcel: string;
+    import: string;
+    template: string;
+    balanceValid: string;
+    balanceInvalid: string;
+    year: string;
+    budgetVote: string;
+    reel: string;
+    rubrique: string;
+    code: string;
+    actions: string;
+    addEvent: string;
+    editEvent: string;
+    newEvent: string;
+    description: string;
+    impactEstime: string;
+    type: string;
+    deleteConfirm: string;
+  };
 }
 
 const translations: Record<Language, Translations> = {
@@ -161,6 +196,59 @@ const translations: Record<Language, Translations> = {
       timeTracking: 'Time Tracking',
       documentManagement: 'Document Management',
       openModule: 'Open Module',
+    },
+    login: {
+      title: 'Platform',
+      subtitle: 'Sign in to continue',
+      emailLabel: 'Email Address',
+      passwordLabel: 'Password',
+      emailPlaceholder: 'you@example.com',
+      passwordPlaceholder: 'Enter your password',
+      rememberMe: 'Remember me',
+      forgotPassword: 'Forgot password?',
+      signIn: 'Sign In',
+      signingIn: 'Signing in...',
+      noAccount: "Don't have an account?",
+      signUp: 'Sign up',
+      emailRequired: 'Email is required',
+      emailInvalid: 'Please enter a valid email address',
+      passwordRequired: 'Password is required',
+      passwordMinLength: 'Password must be at least 6 characters',
+      invalidCredentials: 'Invalid email or password',
+      accountDeactivated: 'Your account has been deactivated',
+    },
+    budget: {
+      title: 'Budget Management',
+      subtitle: 'Enter and manage municipal budgets',
+      communes: 'Municipalities',
+      budgets: 'Budgets',
+      recettes: 'Revenues',
+      depenses: 'Expenses',
+      selectCommune: 'Select a municipality',
+      noCommune: 'No municipality available',
+      budgetData: 'Budget Data',
+      futureEvents: 'Future Events',
+      addYear: 'Add year',
+      validateBalance: 'Validate balance',
+      exportCSV: 'Export CSV',
+      exportExcel: 'Export Excel',
+      import: 'Import',
+      template: 'CSV Template',
+      balanceValid: 'Balance respected',
+      balanceInvalid: 'Balance not respected',
+      year: 'Year',
+      budgetVote: 'Voted budget',
+      reel: 'Actual',
+      rubrique: 'Category',
+      code: 'Code',
+      actions: 'Actions',
+      addEvent: 'Add event',
+      editEvent: 'Edit event',
+      newEvent: 'New event',
+      description: 'Description',
+      impactEstime: 'Estimated impact (DT)',
+      type: 'Type',
+      deleteConfirm: 'Are you sure you want to delete?',
     },
   },
   fr: {
@@ -247,6 +335,39 @@ const translations: Record<Language, Translations> = {
       invalidCredentials: 'E-mail ou mot de passe invalide',
       accountDeactivated: 'Votre compte a été désactivé',
     },
+    budget: {
+      title: 'Gestion Budgétaire',
+      subtitle: 'Saisie et gestion des budgets municipaux',
+      communes: 'Communes',
+      budgets: 'Budgets',
+      recettes: 'Recettes',
+      depenses: 'Dépenses',
+      selectCommune: 'Sélectionner une commune',
+      noCommune: 'Aucune commune disponible',
+      budgetData: 'Données Budgétaires',
+      futureEvents: 'Événements Futurs',
+      addYear: 'Ajouter année',
+      validateBalance: 'Valider équilibre',
+      exportCSV: 'Export CSV',
+      exportExcel: 'Export Excel',
+      import: 'Import',
+      template: 'Template CSV',
+      balanceValid: 'Équilibre respecté',
+      balanceInvalid: 'Équilibre non respecté',
+      year: 'Année',
+      budgetVote: 'Budget voté',
+      reel: 'Réel',
+      rubrique: 'Rubrique',
+      code: 'Code',
+      actions: 'Actions',
+      addEvent: 'Ajouter un événement',
+      editEvent: "Modifier l'événement",
+      newEvent: 'Nouvel événement',
+      description: 'Description',
+      impactEstime: 'Impact estimé (DT)',
+      type: 'Type',
+      deleteConfirm: 'Êtes-vous sûr de vouloir supprimer ?',
+    },
   },
   ar: {
     common: {
@@ -331,6 +452,39 @@ const translations: Record<Language, Translations> = {
       passwordMinLength: 'يجب أن تكون كلمة المرور 6 أحرف على الأقل',
       invalidCredentials: 'البريد الإلكتروني أو كلمة المرور غير صحيحة',
       accountDeactivated: 'تم تعطيل حسابك',
+    },
+    budget: {
+      title: 'إدارة الميزانية',
+      subtitle: 'إدخال وإدارة الميزانيات البلدية',
+      communes: 'البلديات',
+      budgets: 'الميزانيات',
+      recettes: 'الإيرادات',
+      depenses: 'النفقات',
+      selectCommune: 'اختر بلدية',
+      noCommune: 'لا توجد بلدية متاحة',
+      budgetData: 'بيانات الميزانية',
+      futureEvents: 'الأحداث المستقبلية',
+      addYear: 'إضافة سنة',
+      validateBalance: 'التحقق من التوازن',
+      exportCSV: 'تصدير CSV',
+      exportExcel: 'تصدير Excel',
+      import: 'استيراد',
+      template: 'قالب CSV',
+      balanceValid: 'التوازن محترم',
+      balanceInvalid: 'التوازن غير محترم',
+      year: 'السنة',
+      budgetVote: 'الميزانية المصوتة',
+      reel: 'الفعلية',
+      rubrique: 'الفئة',
+      code: 'الرمز',
+      actions: 'الإجراءات',
+      addEvent: 'إضافة حدث',
+      editEvent: 'تعديل الحدث',
+      newEvent: 'حدث جديد',
+      description: 'الوصف',
+      impactEstime: 'التأثير المقدر (د.ت)',
+      type: 'النوع',
+      deleteConfirm: 'هل أنت متأكد من أنك تريد الحذف؟',
     },
   },
 };

@@ -1,0 +1,266 @@
+.budget-data-entry {
+  padding: 2rem;
+  background: #f8f9fa;
+  min-height: 100vh;
+}
+
+.budget-header {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.budget-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.tab-button {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #e0e0e0;
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.tab-button:hover {
+  border-color: #667eea;
+  color: #667eea;
+}
+
+.tab-button.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: transparent;
+}
+
+.budget-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.year-select {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: white;
+}
+
+.btn-validate,
+.btn-export,
+.btn-import,
+.btn-template {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.btn-validate {
+  background: #28a745;
+  color: white;
+}
+
+.btn-validate:hover:not(:disabled) {
+  background: #218838;
+}
+
+.btn-validate:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-export {
+  background: #667eea;
+  color: white;
+}
+
+.btn-export:hover {
+  background: #5568d3;
+}
+
+.btn-import {
+  background: #17a2b8;
+  color: white;
+  cursor: pointer;
+}
+
+.btn-import:hover {
+  background: #138496;
+}
+
+.btn-template {
+  background: #6c757d;
+  color: white;
+}
+
+.btn-template:hover {
+  background: #5a6268;
+}
+
+.validation-message {
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.validation-message.success {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.validation-message.error {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.budget-table-container {
+  background: white;
+  border-radius: 8px;
+  overflow-x: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.budget-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+
+.budget-table thead {
+  background: #f8f9fa;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.budget-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.year-column {
+  text-align: center;
+  min-width: 150px;
+}
+
+.year-column > div:first-child {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.sub-columns {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: normal;
+  color: #666;
+}
+
+.sub-columns span {
+  flex: 1;
+  padding: 0.25rem;
+  background: #e9ecef;
+  border-radius: 4px;
+}
+
+.budget-table td {
+  padding: 0.5rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.rubrique-name {
+  font-weight: 500;
+  min-width: 200px;
+  max-width: 250px;
+}
+
+.rubrique-code {
+  font-family: monospace;
+  color: #667eea;
+  font-weight: 600;
+  min-width: 60px;
+}
+
+.year-cell {
+  padding: 0.25rem !important;
+  min-width: 150px;
+}
+
+.year-cell .cell-input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+  box-sizing: border-box;
+}
+
+.year-cell .cell-input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+}
+
+.btn-add-year {
+  padding: 0.5rem 1rem;
+  background: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: background 0.2s;
+}
+
+.btn-add-year:hover {
+  background: #5a6268;
+}
+
+.budget-table tbody tr:hover {
+  background: #f8f9fa;
+}
+
+.loading {
+  padding: 3rem;
+  text-align: center;
+  color: #666;
+  font-size: 1.125rem;
+}
+
+@media (max-width: 768px) {
+  .budget-data-entry {
+    padding: 1rem;
+  }
+
+  .budget-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .budget-actions > * {
+    width: 100%;
+  }
+
+  .budget-table-container {
+    overflow-x: scroll;
+  }
+}
+
